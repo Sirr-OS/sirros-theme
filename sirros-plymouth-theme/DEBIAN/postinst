@@ -37,7 +37,7 @@ phosh-app-grid {
 EOF
 
 # Appliquer la bonne propriété utilisateur/groupe sur gtk.css
-chown $USER:$USER "$GTK_CSS_FILE"
+#chown $USER:$USER "$GTK_CSS_FILE" # Debug test to avoid error chown
 
 # Configuration du thème Plymouth
 PLYMOUTH_THEME_NAME="sirros"
