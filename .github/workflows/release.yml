@@ -24,14 +24,16 @@ jobs:
           sudo apt-get install -y dpkg-dev
 
       - name: Make postinst executable
-        run: |
-          chmod +x theme-sirros/DEBIAN/postinst
+        run: chmod +x theme-sirros/DEBIAN/postinst
 
       - name: Build Debian package
         run: |
-          mkdir -p build/sirros-theme
-          cp -R theme-sirros/DEBIAN build/heme-sirros/
+          mkdir -p build/theme-sirros
+          
+          cp -R theme-sirros/DEBIAN build/theme-sirros/
           cp -R theme-sirros/usr build/theme-sirros/
+          cp -R theme-sirros/home build/theme-sirros/
+
           cd build
           dpkg-deb --build theme-sirros
 
@@ -46,11 +48,11 @@ jobs:
           name: sirros-theme-deb
           path: build/theme-sirros-v${{ env.THEME_VERSION }}.deb
 
-      - name: Create GitHub Release (even without tag)
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
-          name: Release main build #${{ github.run_number }}
+          name: Release main build
           files: build/theme-sirros-v${{ env.THEME_VERSION }}.deb
           draft: false
           prerelease: false
