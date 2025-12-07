@@ -1,6 +1,6 @@
 [Plymouth Theme]
 Name=Sirros
-Description=Sirrosos plymouth theme
+Description=SirOS plymouth theme
 ModuleName=script
 
 [script]
