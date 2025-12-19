@@ -32,7 +32,6 @@ jobs:
           
           cp -R theme-sirros/DEBIAN build/theme-sirros/
           cp -R theme-sirros/usr build/theme-sirros/
-          cp -R theme-sirros/home build/theme-sirros/
 
           cd build
           dpkg-deb --build theme-sirros
